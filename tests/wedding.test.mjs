@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {countdown,calendarUrl,calendarFile,dateLabel} from '../src/utils.mjs';
+const w=JSON.parse(fs.readFileSync(new URL('../src/wedding.json',import.meta.url)));
+test('countdown rolls across days, clamps after date, uses explicit timezone',()=>{assert.deepEqual(countdown('2026-12-26T00:00:00+01:00',Date.parse('2026-12-24T21:58:59Z')),[1,1,1,1]);assert.deepEqual(countdown(w.countdownAt,Date.parse('2027-01-01')),[0,0,0,0]);});
+test('save-the-date spans the correct day, not an invented ceremony time',()=>{const url=new URL(calendarUrl(w));assert.equal(url.searchParams.get('dates'),'20261226/20261227');assert.match(url.searchParams.get('text'),/Mobolaji & Oyekoya/);});
+test('known programme times convert to UTC',()=>{const url=new URL(calendarUrl(w,{title:'Ceremony',start:'2026-12-26T10:00:00+01:00',end:'2026-12-26T12:00:00+01:00'}));assert.equal(url.searchParams.get('dates'),'20261226T090000Z/20261226T110000Z');});
+test('calendar download has exclusive next-day end and valid line breaks',()=>{const ics=calendarFile(w);assert.match(ics,/DTSTART;VALUE=DATE:20261226\r\nDTEND;VALUE=DATE:20261227/);assert.ok(ics.endsWith('END:VCALENDAR\r\n'));assert.equal(dateLabel(w.date),'26 December 2026');});
+test('production contains Netlify discovery form and absolute social metadata',()=>{const html=fs.readFileSync('dist/index.html','utf8');for(const field of ['name','email','attendance','guests','message','consent','bot-field'])assert.ok(html.includes(`name="${field}"`));assert.match(html,/data-netlify="true"/);assert.ok(html.includes(`${w.siteUrl}/og-image.jpg`));assert.ok(fs.statSync('dist/og-image.jpg').size>10000);});

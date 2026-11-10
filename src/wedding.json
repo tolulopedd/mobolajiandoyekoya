@@ -1,0 +1,120 @@
+{
+  "couple": {
+    "first": "Mobolaji",
+    "second": "Oyekoya"
+  },
+  "theme": "It’s God’s Time",
+  "date": "2026-12-26",
+  "countdownAt": "2026-12-26T00:00:00+01:00",
+  "timezone": "Africa/Lagos",
+  "timezoneNote": "Countdown to the wedding day, West Africa Time. Ceremony time to be announced.",
+  "siteUrl": "https://mobolajiandoyekoya.netlify.app",
+  "logo": "/wedding-logo.png",
+  "coverImage": "/photos/together-in-blue.webp",
+  "invitation": "Together with our families, we joyfully invite you to celebrate our wedding. With grateful hearts and faith in God’s perfect timing, we begin a beautiful new chapter — and we would love to share it with you.",
+  "verse": "He has made everything beautiful in its time.",
+  "verseReference": "Ecclesiastes 3:11",
+  "events": [
+    {
+      "title": "The ceremony",
+      "label": "THE PROMISE",
+      "description": "Join us as we exchange our vows and begin our forever.",
+      "time": "Time to be announced",
+      "venue": "Venue to be announced",
+      "address": "Details will be shared here soon.",
+      "mapsQuery": "",
+      "start": "",
+      "end": ""
+    },
+    {
+      "title": "The reception",
+      "label": "THE CELEBRATION",
+      "description": "An evening of love, laughter and memories to treasure.",
+      "time": "Time to be announced",
+      "venue": "Venue to be announced",
+      "address": "Details will be shared here soon.",
+      "mapsQuery": "",
+      "start": "",
+      "end": ""
+    }
+  ],
+  "dressCode": "Dress code to be announced",
+  "dressNote": "A little inspiration from our wedding palette. Come ready to celebrate with us.",
+  "colours": [
+    {
+      "name": "Champagne gold",
+      "hex": "#CBB587"
+    },
+    {
+      "name": "Ivory",
+      "hex": "#F3EFE5"
+    },
+    {
+      "name": "White",
+      "hex": "#FFFFFF"
+    },
+    {
+      "name": "Warm grey",
+      "hex": "#A39D96"
+    }
+  ],
+  "sections": {
+    "gallery": true,
+    "story": false,
+    "gifts": false
+  },
+  "photos": [
+    {
+      "src": "/photos/side-by-side.webp",
+      "alt": "The couple leaning together, wearing stripes and purple",
+      "caption": "Side by side.",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "src": "/photos/celebrating-together.webp",
+      "alt": "The couple smiling outdoors in pink and ivory traditional attire",
+      "caption": "A little colour. A lot of love.",
+      "width": 1080,
+      "height": 810
+    },
+    {
+      "src": "/photos/everyday-us.webp",
+      "alt": "A relaxed everyday selfie of the couple in pink and checked shirts",
+      "caption": "The everyday kind of forever.",
+      "width": 810,
+      "height": 1080
+    }
+  ],
+  "story": {
+    "title": "A love in His time",
+    "text": "Our story will be shared here soon."
+  },
+  "gifts": {
+    "text": "Your presence is our greatest gift.",
+    "registryUrl": "",
+    "bankName": "",
+    "accountName": "",
+    "accountNumber": ""
+  },
+  "rsvp": {
+    "enabled": true,
+    "deadline": "",
+    "maxGuests": 1,
+    "privacy": "Your details are shared only with the couple and their wedding planning team, and used only to arrange this celebration.",
+    "photo": {
+      "src": "/photos/a-little-laughter.webp",
+      "alt": "A joyful candid selfie of the couple dressed in black",
+      "caption": "More laughter. More life. Together."
+    }
+  },
+  "coverImageAlt": "Mobolaji and Oyekoya smiling together in blue traditional attire",
+  "coverImagePosition": "50% 28%",
+  "notifications": {
+    "recipients": [
+      "bolajiosakuade@yahoo.com",
+      "Orilionxyz@gmail.com"
+    ],
+    "subject": "Mobolaji & Oyekoya — New wedding RSVP"
+  }
+}

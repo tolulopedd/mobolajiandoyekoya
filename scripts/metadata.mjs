@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises';
+import sharp from 'sharp';
+const w=JSON.parse(await fs.readFile('src/wedding.json','utf8'));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
+const name=`${w.couple.first} & ${w.couple.second}`;
+const label=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(w.date+'T12:00:00Z'));
+const description=`Celebrate the wedding of ${name} on ${label}. View the invitation, save the date and RSVP.`;
+const base=w.siteUrl.replace(/\/$/,'');
+const logo=await sharp(`public${w.logo}`).resize({width:290,height:290,fit:'inside'}).png().toBuffer();
+const metadata=await sharp(logo).metadata();
+const svg=Buffer.from(`<svg width="1200" height="630"><rect width="1200" height="630" fill="#faf9f5"/><rect x="24" y="24" width="1152" height="582" fill="none" stroke="#c7b185"/><text x="600" y="75" text-anchor="middle" font-family="Georgia" font-size="16" letter-spacing="4" fill="#927c54">YOU ARE CORDIALLY INVITED</text><text x="600" y="460" text-anchor="middle" font-family="Georgia" font-size="53" fill="#514d43">${esc(name)}</text><text x="600" y="510" text-anchor="middle" font-family="Georgia" font-size="25" fill="#927c54">${esc(w.theme)}</text><text x="600" y="555" text-anchor="middle" font-family="sans-serif" font-size="17" letter-spacing="3" fill="#777164">${esc(label.toUpperCase())}</text></svg>`);
+await sharp(svg).composite([{input:logo,left:Math.round((1200-metadata.width)/2),top:110}]).jpeg({quality:90}).toFile('dist/og-image.jpg');
+let html=await fs.readFile('dist/index.html','utf8');
+html=html.replace(/<title>.*?<\/title>/,`<title>${esc(name)} — ${esc(w.theme)}</title>`).replace(/<meta name="description"[^>]*>/,`<meta name="description" content="${esc(description)}">`);
+html=html.replace('</head>',`<link rel="canonical" href="${esc(base)}/"><meta property="og:type" content="website"><meta property="og:title" content="${esc(name)} — ${esc(w.theme)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(base)}/"><meta property="og:image" content="${esc(base)}/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(name)} wedding invitation with original wedding logo"><meta name="twitter:card" content="summary_large_image"></head>`);
+// Netlify discovers forms from static HTML at deployment, not from client-rendered React.
+const fields=['name','email','attendance','guests','message','consent'];
+html=html.replace('<div id="root">',`<form name="wedding-rsvp" method="POST" action="/rsvp-success/" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="form-name" value="wedding-rsvp"><input name="bot-field"><input type="hidden" name="subject" value="${esc(w.notifications.subject)}">${fields.map(f=>`<input name="${f}">`).join('')}</form><div id="root">`);
+await fs.writeFile('dist/index.html',html);
+await fs.mkdir('dist/rsvp-success',{recursive:true});
+await fs.writeFile('dist/rsvp-success/index.html',`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Thank you — ${esc(name)}</title><body style="background:#faf9f5;color:#514d43;text-align:center;font-family:Georgia;padding:15vh 24px"><h1>Thank you for your reply.</h1><p>Your RSVP has been received by the wedding planning team.</p><a href="/">Return to the invitation</a></body></html>`);
+await fs.writeFile('dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /rsvp-success/\nSitemap: ${base}/sitemap.xml\n`);
+await fs.writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(base)}/</loc></url></urlset>`);
+console.log('Generated logo-based social preview, SEO metadata and Netlify form.');
