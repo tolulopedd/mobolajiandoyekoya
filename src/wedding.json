@@ -100,7 +100,7 @@
   "rsvp": {
     "enabled": true,
     "deadline": "",
-    "maxGuests": 1,
+    "maxGuests": 10,
     "privacy": "Your details are shared only with the couple and their wedding planning team, and used only to arrange this celebration.",
     "photo": {
       "src": "/photos/a-little-laughter.webp",

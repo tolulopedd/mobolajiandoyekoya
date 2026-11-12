@@ -29,7 +29,7 @@ Everything editable is in **src/wedding.json**. Rebuild after changing it; socia
 - `rsvp.photo`: candid photograph and caption beside the RSVP.
 - `sections.gallery`, `sections.story`, `sections.gifts`: show/hide sections. Story and gifts default off.
 - `story`, `gifts`: provide real content before enabling. Registry URL must use HTTPS; optional account information and copy button are supported.
-- `rsvp.maxGuests`: defaults to one guest per response; set the permitted party size.
+- `rsvp.maxGuests`: currently allows 1–10 guests per response, including the person responding; change this to adjust the permitted party size.
 - `rsvp.deadline`: optional YYYY-MM-DD label. It is informational, not an enforced cutoff.
 - `notifications.recipients`: both wedding notification recipients and the recipients of the fallback contact-email link. The server-side Resend notification function reads this list directly.
 - `notifications.subject`: subject used by the form notification emails.

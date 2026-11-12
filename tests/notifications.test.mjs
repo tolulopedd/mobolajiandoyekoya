@@ -7,12 +7,12 @@ test('both recipients receive escaped message; reply goes to guest',()=>{
  const mail=notification(submission,env.RESEND_FROM_EMAIL);
  assert.deepEqual(mail.body.to,['bolajiosakuade@yahoo.com','Orilionxyz@gmail.com']);
  assert.equal(mail.body.reply_to,'guest@example.com');
- assert.ok(mail.body.html.includes('&lt;script&gt;'));assert.ok(!mail.body.html.includes('<script>'));
- assert.ok(mail.body.text.includes('Love & joy'));assert.ok(mail.body.text.includes('Party size: 2'));
+ assert.ok(mail.body.html.includes('Your wedding invitation reply'));assert.ok(mail.body.text.includes('Your wedding invitation reply'));assert.ok(mail.body.html.includes('&lt;script&gt;'));assert.ok(!mail.body.html.includes('<script>'));
+ assert.ok(mail.body.text.includes('Love & joy'));assert.ok(mail.body.text.includes('No of Person(s) Attending: 2'));
  assert.equal(mail.key,notification(submission,env.RESEND_FROM_EMAIL).key);
 });
 test('declines record zero guests; unrelated forms and honeypots are ignored',()=>{
- assert.ok(notification({...submission,data:{...submission.data,attendance:'no'}},'sender').body.text.includes('Party size: 0'));
+ assert.ok(notification({...submission,data:{...submission.data,attendance:'no'}},'sender').body.text.includes('No of Person(s) Attending: 0'));
  assert.equal(notification({...submission,form_name:'other'},'sender'),null);
  assert.equal(notification({...submission,data:{...submission.data,'bot-field':'spam'}},'sender'),null);
 });

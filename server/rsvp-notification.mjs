@@ -19,9 +19,9 @@ export function notification(payload, sender) {
   const attendance = data.attendance === 'yes' ? 'Joyfully accepts' : 'Regretfully declines';
   const guests = data.attendance === 'no' ? '0' : field(String(data.guests || '1'), 10);
   const message = field(data.message, 1000) || 'No message included.';
-  const rows = [['Guest', name], ['Email', email], ['Attendance', attendance], ['Party size', guests], ['Message', message]];
-  const text = `${wedding.notifications.subject}\n\n${rows.map(([k, v]) => `${k}: ${v}`).join('\n\n')}\n\nSaved submission: ${payload.id}\nReply to this email to contact the guest.`;
-  const html = `<div style="background:#faf9f5;padding:32px;color:#49473f;font-family:Georgia,serif;max-width:600px;margin:auto"><p style="font-size:12px;letter-spacing:2px;color:#806b48">${escapeHtml(wedding.theme)}</p><h1 style="font-weight:normal">A new wedding reply</h1>${rows.map(([k, v]) => `<p style="margin:22px 0"><strong>${k}</strong><br><span style="white-space:pre-wrap">${escapeHtml(v)}</span></p>`).join('')}<hr style="border:0;border-top:1px solid #ded9cb"><p>Reply to this email to contact the guest.</p><p style="font-size:12px">Saved submission: ${escapeHtml(payload.id)}</p></div>`;
+  const rows = [['Guest', name], ['Email', email], ['Attendance', attendance], ['No of Person(s) Attending', guests], ['Message', message]];
+  const text = `${wedding.theme}\n\nYour wedding invitation reply\n\n${rows.map(([k, v]) => `${k}: ${v}`).join('\n\n')}\n\nSaved submission: ${payload.id}\nReply to this email to contact the guest.`;
+  const html = `<div style="background:#faf9f5;padding:32px;color:#49473f;font-family:Georgia,serif;max-width:600px;margin:auto"><p style="font-size:12px;letter-spacing:2px;color:#806b48">${escapeHtml(wedding.theme)}</p><h1 style="font-weight:normal">Your wedding invitation reply</h1>${rows.map(([k, v]) => `<p style="margin:22px 0"><strong>${k}</strong><br><span style="white-space:pre-wrap">${escapeHtml(v)}</span></p>`).join('')}<hr style="border:0;border-top:1px solid #ded9cb"><p>Reply to this email to contact the guest.</p><p style="font-size:12px">Saved submission: ${escapeHtml(payload.id)}</p></div>`;
   return {
     key: `wedding-rsvp/${createHash('sha256').update(payload.id).digest('hex')}`,
     body: { from: sender, to: wedding.notifications.recipients, reply_to: email,
