@@ -112,4 +112,4 @@ References: [Netlify event functions](https://docs.netlify.com/build/functions/t
 
 `music` in `src/wedding.json` controls the supplied looping track, its credit and initial volume. Audio loads only on interaction, starts when the invitation opens, and can be paused/resumed using the fixed music control. Browsers require a guest gesture before audible playback; a direct section link leaves the play control available. Pausing is respected during subsequent navigation.
 
-`location` contains the supplied Citiview Estate (by Propertymart) address and Google Maps search query. It is shown as the wedding location and included in save-the-date calendars. Individual ceremony/reception venue assignments remain pending until confirmed.
+`location` contains the supplied Citiview Estate (by Propertymart) address and Google Maps search query. It is shown as the wedding location and included in save-the-date calendars. The ceremony and reception both use this supplied venue; only their times remain pending.
