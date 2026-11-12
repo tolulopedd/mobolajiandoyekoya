@@ -107,3 +107,9 @@ The function is invoked only after Netlify saves and verifies the RSVP. Netlify 
 If delivery fails, the RSVP remains saved and the function reports an error in Netlify logs. Check Forms and function logs during the RSVP period. There is no durable email retry queue: resolve configuration/delivery issues and recover missed messages from the saved responses. Do not tell guests to resubmit just because notification email failed.
 
 References: [Netlify event functions](https://docs.netlify.com/build/functions/trigger-on-events/), [Resend send email API](https://resend.com/docs/api-reference/emails/send-email), [Resend idempotency](https://resend.com/blog/engineering-idempotency-keys).
+
+## Background music and venue
+
+`music` in `src/wedding.json` controls the supplied looping track, its credit and initial volume. Audio loads only on interaction, starts when the invitation opens, and can be paused/resumed using the fixed music control. Browsers require a guest gesture before audible playback; a direct section link leaves the play control available. Pausing is respected during subsequent navigation.
+
+`location` contains the supplied Cityview Estate address and Google Maps search query. It is shown as the wedding location and included in save-the-date calendars. Individual ceremony/reception venue assignments remain pending until confirmed.

@@ -116,5 +116,16 @@
       "Orilionxyz@gmail.com"
     ],
     "subject": "Mobolaji & Oyekoya — New wedding RSVP"
+  },
+  "music": {
+    "enabled": true,
+    "src": "/audio/aimasiko.m4a",
+    "credit": "Simi — Amaisiko",
+    "volume": 0.3
+  },
+  "location": {
+    "venue": "Cityview Estate",
+    "address": "By Propertymat Warewa, (Before the long bridge to Lagos) Ogun State",
+    "mapsQuery": "Cityview Estate, By Propertymat Warewa, (Before the long bridge to Lagos) Ogun State"
   }
 }
