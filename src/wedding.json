@@ -7,10 +7,10 @@
   "date": "2026-12-26",
   "countdownAt": "2026-12-26T00:00:00+01:00",
   "timezone": "Africa/Lagos",
-  "timezoneNote": "Countdown to the wedding day, West Africa Time. Ceremony time to be announced.",
+  "timezoneNote": "Countdown to the wedding day, West Africa Time. Ceremony at 9am; reception at 12 noon.",
   "siteUrl": "https://mobolajiandoyekoya.netlify.app",
   "logo": "/wedding-logo.png",
-  "coverImage": "/photos/together-in-blue.webp",
+  "coverImage": "/photos/together-in-perfect-time.webp",
   "invitation": "Together with our families, we joyfully invite you to celebrate our wedding. With grateful hearts and faith in God’s perfect timing, we begin a beautiful new chapter — and we would love to share it with you.",
   "verse": "He has made everything beautiful in its time.",
   "verseReference": "Ecclesiastes 3:11",
@@ -19,26 +19,26 @@
       "title": "The ceremony",
       "label": "THE PROMISE",
       "description": "Join us as we exchange our vows and begin our forever.",
-      "time": "Time to be announced",
-      "venue": "Citiview Estate (by Propertymart)",
-      "address": "Along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, in Warewa/Arepo, Ogun State",
-      "mapsQuery": "Citiview Estate (by Propertymart), along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, Warewa/Arepo, Ogun State",
-      "start": "",
+      "time": "9:00 am",
+      "venue": "KT & T Feasting Palace Event Centre",
+      "address": "Citiview Estate Road, Warewa, Ogun State",
+      "mapsQuery": "KT & T Feasting Palace Event Centre, Citiview Estate Road, Warewa, Ogun State",
+      "start": "2026-12-26T09:00:00+01:00",
       "end": ""
     },
     {
       "title": "The reception",
       "label": "THE CELEBRATION",
-      "description": "An evening of love, laughter and memories to treasure.",
-      "time": "Time to be announced",
-      "venue": "Citiview Estate (by Propertymart)",
-      "address": "Along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, in Warewa/Arepo, Ogun State",
-      "mapsQuery": "Citiview Estate (by Propertymart), along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, Warewa/Arepo, Ogun State",
-      "start": "",
+      "description": "A day of love, laughter and memories to treasure.",
+      "time": "12 noon",
+      "venue": "KT & T Feasting Palace Event Centre",
+      "address": "Citiview Estate Road, Warewa, Ogun State",
+      "mapsQuery": "KT & T Feasting Palace Event Centre, Citiview Estate Road, Warewa, Ogun State",
+      "start": "2026-12-26T12:00:00+01:00",
       "end": ""
     }
   ],
-  "dressCode": "Dress code to be announced",
+  "dressCode": "Dress code White, Gold and Grey.",
   "dressNote": "A little inspiration from our wedding palette. Come ready to celebrate with us.",
   "colours": [
     {
@@ -65,10 +65,24 @@
   },
   "photos": [
     {
-      "src": "/photos/side-by-side.webp",
-      "alt": "The couple leaning together, wearing stripes and purple",
-      "caption": "Side by side.",
-      "width": 1080,
+      "src": "/photos/all-the-little-moments.webp",
+      "alt": "The couple smiling as she adjusts his cap, wearing black and gold traditional attire",
+      "caption": "All the little moments.",
+      "width": 963,
+      "height": 1080
+    },
+    {
+      "src": "/photos/a-love-in-bloom.webp",
+      "alt": "The couple in yellow and white traditional attire, holding hands beside an armchair",
+      "caption": "A love in full bloom.",
+      "width": 1000,
+      "height": 1080
+    },
+    {
+      "src": "/photos/together-in-blue.webp",
+      "alt": "Mobolaji and Oyekoya smiling together in blue traditional attire",
+      "caption": "Together, in His perfect time.",
+      "width": 720,
       "height": 1080
     },
     {
@@ -77,13 +91,6 @@
       "caption": "A little colour. A lot of love.",
       "width": 1080,
       "height": 810
-    },
-    {
-      "src": "/photos/everyday-us.webp",
-      "alt": "A relaxed everyday selfie of the couple in pink and checked shirts",
-      "caption": "The everyday kind of forever.",
-      "width": 810,
-      "height": 1080
     }
   ],
   "story": {
@@ -108,8 +115,8 @@
       "caption": "More laughter. More life. Together."
     }
   },
-  "coverImageAlt": "Mobolaji and Oyekoya smiling together in blue traditional attire",
-  "coverImagePosition": "50% 28%",
+  "coverImageAlt": "Mobolaji and Oyekoya embracing in black outfits",
+  "coverImagePosition": "50% 0%",
   "notifications": {
     "recipients": [
       "bolajiosakuade@yahoo.com",
@@ -124,8 +131,8 @@
     "volume": 0.3
   },
   "location": {
-    "venue": "Citiview Estate (by Propertymart)",
-    "address": "Along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, in Warewa/Arepo, Ogun State",
-    "mapsQuery": "Citiview Estate (by Propertymart), along the Lagos-Ibadan Expressway, just before the Long Bridge/Berger area, Warewa/Arepo, Ogun State"
+    "venue": "KT & T Feasting Palace Event Centre",
+    "address": "Citiview Estate Road, Warewa, Ogun State",
+    "mapsQuery": "KT & T Feasting Palace Event Centre, Citiview Estate Road, Warewa, Ogun State"
   }
 }
